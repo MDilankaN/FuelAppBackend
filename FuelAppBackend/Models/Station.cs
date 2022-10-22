@@ -4,7 +4,7 @@ using MongoDB.Bson.Serialization.Attributes;
 namespace FuelAppBackend.Models
 {
     [BsonIgnoreExtraElements]
-    public class Stations
+    public class Station
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
