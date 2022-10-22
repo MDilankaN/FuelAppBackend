@@ -1,5 +1,6 @@
 ﻿using FuelAppBackend.Models;
 using MongoDB.Driver;
+using static System.Collections.Specialized.BitVector32;
 
 namespace FuelAppBackend.Services
 {
@@ -21,27 +22,27 @@ namespace FuelAppBackend.Services
 
         public void Delete(string id)
         {
-            _station.DeleteOne(student => student.Id == id);
+            _station.DeleteOne(station => station.Id == id);
         }
 
         public Station GetStationGetByID(string id)
         {
-            return _station.Find(student => student.Id == id).FirstOrDefault();
+            return _station.Find(station => station.Id == id).FirstOrDefault();
         }
 
         public Station GetStationGetByName(string stationName)
         {
-            return _station.Find(student => student.Id == stationName).FirstOrDefault();
+            return _station.Find(station => station.Id == stationName).FirstOrDefault();
         }
 
         public List<Station> GetStations()
         {
-            return _station.Find(student => true).ToList();
+            return _station.Find(station => true).ToList();
         }
 
         public void Update(string id,Station station)
         {
-            _station.ReplaceOne(student => student.Id == id, station);
+            _station.ReplaceOne(station => station.Id == id, station);
         }
     }
 }

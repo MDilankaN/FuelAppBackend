@@ -27,17 +27,17 @@ namespace FuelAppBackend.Services
 
         public List<Queue> GetQueues()
         {
-            return _queue.Find(student => true).ToList();
+            return _queue.Find(queue => true).ToList();
         }
 
         public void Remove(string id)
         {
-            _queue.DeleteOne(student => student.Id == id);
+            _queue.DeleteOne(queue => queue.Id == id);
         }
 
         public void Update(string id, Queue queue)
         {
-            _queue.ReplaceOne(student => student.Id == id, queue);
+            _queue.ReplaceOne(queue => queue.Id == id, queue);
         }
     }
 }
