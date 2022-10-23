@@ -8,15 +8,15 @@ namespace FuelAppBackend.Models
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; } = String.Empty;
-        [BsonElement("stationname")]
-        public string StationName { get; set; } = String.Empty;
-        [BsonElement("address")]
-        public string Address { get; set; } = String.Empty;
-        [BsonElement("telephone")] public string Telephone { get; set; } = String.Empty;
-        [BsonElement("opentime")] public string OpenTime { get; set; } = String.Empty;
-        [BsonElement("closetime")] public string CloseTime { get; set; } = String.Empty;
-        [BsonElement("imageurl")] public string ImageURL { get; set; } = String.Empty;
-        [BsonElement("fuelstatus")] public bool FuelStatus { get; set; }
-        [BsonElement("noofpumps")] public int NoOfPumps { get; set; }
+        [BsonElement("username")]
+        public string UserName { get; set; } = String.Empty;
+        [BsonElement("email")]
+        public string Email { get; set; } = String.Empty;
+        [BsonElement("password")] public string Password { get; set; } = String.Empty;
+        [BsonElement("vehicleno")] public string VehicleNo { get; set; } = String.Empty;
+        [BsonElement("vehicletype")] public string VehicleType { get; set; } = String.Empty;
+        [BsonElement("fueltype")] public string FuelType { get; set; } = String.Empty;
+        [BsonElement("language")] public string Language { get; set; } = String.Empty;
+        [BsonElement("type")] public string Type { get; set; } = String.Empty;
     }
 }
