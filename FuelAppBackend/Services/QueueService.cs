@@ -10,7 +10,7 @@ namespace FuelAppBackend.Services
         public QueueService(DatabaseSettings settings, IMongoClient mongoClient)
         {
             var database = mongoClient.GetDatabase(settings.DatabaseName);
-            _queue = database.GetCollection<Queue>(settings.CollectionName);
+            _queue = database.GetCollection<Queue>(settings.CollectionName[1]);
 
 
         }

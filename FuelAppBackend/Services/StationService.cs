@@ -11,7 +11,7 @@ namespace FuelAppBackend.Services
         public StationService(DatabaseSettings settings,IMongoClient mongoClient)
         {
             var database = mongoClient.GetDatabase(settings.DatabaseName);
-            _station = database.GetCollection<Station>(settings.CollectionName);
+            _station = database.GetCollection<Station>(settings.CollectionName[0]);
         }
 
         public Station Create(Station station)
