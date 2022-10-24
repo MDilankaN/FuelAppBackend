@@ -5,9 +5,9 @@ namespace FuelAppBackend.Services
     public class IUserService
     {
         public List<User> GetUsers();
-        public User Get(String id);
-        public User Create(User user);
-        public void Update(String id, User user);
-        public void Remove(string id);
+        public User GetUserByID(String id);
+        public User CreateUser(User user);
+        public void UpdateUser(String id, User user);
+        public void RemoveUser(string id);
     }
 }

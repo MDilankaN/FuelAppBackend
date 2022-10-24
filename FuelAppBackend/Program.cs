@@ -12,6 +12,7 @@ builder.Services.AddSingleton<DatabaseSettings>(sp => sp.GetRequiredService<IOpt
 builder.Services.AddSingleton<IMongoClient>(s => new MongoClient(builder.Configuration.GetValue<string>("DatabaseSettings:ConnectionString")));
 builder.Services.AddScoped<IStationService, StationService>();
 builder.Services.AddScoped<IQueueService, QueueService>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 
 

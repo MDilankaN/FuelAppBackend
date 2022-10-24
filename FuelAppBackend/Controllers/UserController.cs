@@ -27,7 +27,7 @@ namespace FuelAppBackend.Controllers
         // GET api/<UserController>/5
         public ActionResult<User> Get(String id)
         {
-            var user = _userService.Get(id);
+            var user = _userService.GetUserByID(id);
             if (user == null)
             {
                 return NotFound($"User with userID = {id} not found");
@@ -39,7 +39,7 @@ namespace FuelAppBackend.Controllers
         [HttpPost]
         public ActionResult<User> Post([FromBody] User user)
         {
-            _userService.Create(user);
+            _userService.CreateUser(user);
             return CreatedAtAction(nameof(Get), new { id = user.Id }, user);
         }
 
@@ -47,12 +47,12 @@ namespace FuelAppBackend.Controllers
         [HttpPut("{id}")]
         public ActionResult Put(string id, [FromBody] User user)
         {
-            var exsistingUser = _userService.Get(id);
+            var exsistingUser = _userService.GetUserByID(id);
             if (exsistingUser == null)
             {
                 return NotFound($"User with UserID = {id} not found");
             }
-            _userService.Update(id, user);
+            _userService.UpdateUser(id, user);
             return Ok($"User with UserID = {id} Updated");
         }
 
@@ -60,12 +60,12 @@ namespace FuelAppBackend.Controllers
         [HttpDelete("{id}")]
         public ActionResult Delete(string id)
         {
-            var exsistingUser = _userService.Get(id);
+            var exsistingUser = _userService.GetUserByID(id);
             if (exsistingUser == null)
             {
                 return NotFound($"User with UserID = {id} not found");
             }
-            _userService.Remove(id);
+            _userService.RemoveUser(id);
             return Ok($"User with UserID = {id} deleted");
 
         }
