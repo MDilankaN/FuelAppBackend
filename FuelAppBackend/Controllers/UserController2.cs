@@ -2,18 +2,19 @@
 using FuelAppBackend.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using static System.Collections.Specialized.BitVector32;
 
 //reference - https://youtu.be/iWTdJ1IYGtg
 namespace FuelAppBackend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class UserController2 : ControllerBase
     {
 
         private readonly IUserService _userService;
 
-        public UserController(IUserService userService)
+        public UserController2(IUserService userService)
         {
             this._userService = userService;
         }

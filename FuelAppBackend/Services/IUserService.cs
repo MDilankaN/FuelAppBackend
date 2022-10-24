@@ -2,7 +2,7 @@
 
 namespace FuelAppBackend.Services
 {
-    public class IUserService
+    public interface IUserService
     {
         public List<User> GetUsers();
         public User GetUserByID(String id);
