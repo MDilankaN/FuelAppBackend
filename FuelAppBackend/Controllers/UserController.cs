@@ -3,7 +3,7 @@ using FuelAppBackend.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-//refeence - https://youtu.be/iWTdJ1IYGtg
+//reference - https://youtu.be/iWTdJ1IYGtg
 namespace FuelAppBackend.Controllers
 {
     [Route("api/[controller]")]
@@ -24,73 +24,51 @@ namespace FuelAppBackend.Controllers
             return _userService.GetUsers();
         }
 
-        // GET: UserController/Details/5
-        public ActionResult Details(int id)
+        // GET api/<UserController>/5
+        public ActionResult<User> Get(String id)
         {
-            return View();
+            var user = _userService.Get(id);
+            if (user == null)
+            {
+                return NotFound($"User with userID = {id} not found");
+            }
+            return user;
         }
 
-        // GET: UserController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: UserController/Create
+        // POST: api/<UserController>
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult<User> Post([FromBody] User user)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            _userService.Create(user);
+            return CreatedAtAction(nameof(Get), new { id = user.Id }, user);
         }
 
-        // GET: UserController/Edit/5
-        public ActionResult Edit(int id)
+        // PUT api/<UserController>/5
+        [HttpPut("{id}")]
+        public ActionResult Put(string id, [FromBody] User user)
         {
-            return View();
+            var exsistingUser = _userService.Get(id);
+            if (exsistingUser == null)
+            {
+                return NotFound($"User with UserID = {id} not found");
+            }
+            _userService.Update(id, user);
+            return Ok($"User with UserID = {id} Updated");
         }
 
-        // POST: UserController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        // DELETE api/<UserController>/5
+        [HttpDelete("{id}")]
+        public ActionResult Delete(string id)
         {
-            try
+            var exsistingUser = _userService.Get(id);
+            if (exsistingUser == null)
             {
-                return RedirectToAction(nameof(Index));
+                return NotFound($"User with UserID = {id} not found");
             }
-            catch
-            {
-                return View();
-            }
+            _userService.Remove(id);
+            return Ok($"User with UserID = {id} deleted");
+
         }
 
-        // GET: UserController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: UserController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
 }
