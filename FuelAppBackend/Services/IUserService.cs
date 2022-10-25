@@ -6,6 +6,7 @@ namespace FuelAppBackend.Services
     {
         public List<User> GetUsers();
         public User GetUserByID(String id);
+        public User GetUserByName(String name);
         public User CreateUser(User user);
         public void UpdateUser(String id, User user);
         public void RemoveUser(string id);
