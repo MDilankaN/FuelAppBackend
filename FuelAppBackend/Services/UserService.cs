@@ -23,6 +23,11 @@ namespace FuelAppBackend.Services
             return _user.Find(user => user.Id == id).FirstOrDefault();
         }
 
+        public User GetUserByName(string name)
+        {
+            return _user.Find(user => user.UserName == name).FirstOrDefault();
+        }
+
         public List<User> GetUsers()
         {
             return _user.Find(user => true).ToList();
