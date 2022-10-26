@@ -15,6 +15,7 @@ builder.Services.AddScoped<IQueueService, QueueService>();
 builder.Services.AddScoped<IQueueListService, QueueListService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IContactUsService, ContactUsService>();
+builder.Services.AddScoped<IReFuelHistory, ReFuelHistoryService>();
 
 
 
