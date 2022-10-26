@@ -15,5 +15,9 @@ namespace FuelAppBackend.Models
         public string StationName { get; set; } = String.Empty;
         [BsonElement("queuelistid")]
         public string QueueListID { get; set; } = String.Empty;
+        [BsonElement("startingtime")]
+        public string StartingTime { get; set; } = String.Empty;
+        [BsonElement("fuelstatus")] public bool FuelStatus { get; set; }
+
     }
 }
