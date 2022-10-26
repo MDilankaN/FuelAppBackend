@@ -29,7 +29,7 @@ namespace FuelAppBackend.Controllers
         [HttpGet]
         public ActionResult<Queue> GetByQueueName(string queueName)
         {
-            var queue = _queueService.Get(queueName);    
+            var queue = _queueService.GetByName(queueName);    
             if (queue == null)
             {
                 return NotFound($"Queue with Queue Name = {queueName} not found");

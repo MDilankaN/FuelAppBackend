@@ -20,7 +20,12 @@ namespace FuelAppBackend.Services
             return queue;
         }
 
-        public Queue Get(string queueName)
+        public Queue Get(string id)
+        {
+            return _queue.Find(queue => queue.Id == id).FirstOrDefault();
+        }
+
+        public Queue GetByName(string queueName)
         {
             return _queue.Find(queue => queue.QueueName == queueName).FirstOrDefault();
         }
