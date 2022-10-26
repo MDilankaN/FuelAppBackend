@@ -25,13 +25,26 @@ namespace FuelAppBackend.Controllers
         }
 
         // GET api/<QueueController>/5
-        [HttpGet("{queueName}")]
-        public ActionResult<Queue> Get(string queueName)
+        [Route("[action]/{queuename}")]
+        [HttpGet]
+        public ActionResult<Queue> GetByQueueName(string queueName)
         {
             var queue = _queueService.Get(queueName);    
             if (queue == null)
             {
                 return NotFound($"Queue with Queue Name = {queueName} not found");
+            }
+            return queue;
+        }
+
+        // GET api/<QueueController>/5
+        [HttpGet("{id}")]
+        public ActionResult<Queue> Get(string id)
+        {
+            var queue = _queueService.Get(id);
+            if (queue == null)
+            {
+                return NotFound($"Queue with Queue Name = {id} not found");
             }
             return queue;
         }
