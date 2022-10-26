@@ -37,6 +37,19 @@ namespace FuelAppBackend.Controllers
             return user;
         }
 
+        // GET api/<UserController>/5
+        [Route("[action]/{username}")]
+        [HttpGet]
+        public ActionResult<User> GetUserByName(String username)
+        {
+            var user = _userService.GetUserByName(username);
+            if (user == null)
+            {
+                return NotFound($"User with UserName = {username} not found");
+            }
+            return user;
+        }
+
         // POST api/<UserController>
         [HttpPost]
         public ActionResult<User> Post([FromBody] User user)
