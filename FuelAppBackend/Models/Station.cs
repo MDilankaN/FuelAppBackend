@@ -17,7 +17,6 @@ namespace FuelAppBackend.Models
         [BsonElement("opentime")] public string OpenTime { get; set; } = String.Empty;
         [BsonElement("closetime")] public string CloseTime { get; set; } = String.Empty;
         [BsonElement("imageurl")] public string ImageURL { get; set; } = String.Empty;
-        [BsonElement("fuelstatus")] public bool FuelStatus { get; set; }
         [BsonElement("noofpumps")] public int NoOfPumps { get; set; }
     }
 }
