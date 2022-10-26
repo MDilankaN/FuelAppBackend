@@ -44,7 +44,7 @@ namespace FuelAppBackend.Services
 
         public List<Station> GetStationGetByName(string stationName)
         {
-            return _station.Find(stationName).ToList();     
+            return _station.Find(station => station.StationName == stationName).ToList();
         }
 
 
