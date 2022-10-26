@@ -25,6 +25,16 @@ namespace FuelAppBackend.Controllers
         }
 
         // GET api/<QueueListController>/5
+        [Route("[action]/{queueID}")]
+        [HttpGet]
+        public ActionResult<List<QueueList>> GetQueueListByQueue(string queueID)
+        {
+            return _queuelistService.GetQueueListByQueue(queueID);
+
+        }
+
+
+        // GET api/<QueueListController>/5
         [HttpGet("{id}")]
         public ActionResult<QueueList> Get(string id)
         {

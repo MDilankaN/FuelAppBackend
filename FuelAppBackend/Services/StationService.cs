@@ -14,35 +14,55 @@ namespace FuelAppBackend.Services
             _station = database.GetCollection<Station>(settings.CollectionName[0]);
         }
 
+
+
+
         public Station Create(Station station)
         {
             _station.InsertOne(station);
             return station;
         }
 
+
+
+
         public void Delete(string id)
         {
             _station.DeleteOne(station => station.Id == id);
         }
+
+
+
 
         public Station GetStationGetByID(string id)
         {
             return _station.Find(station => station.Id == id).FirstOrDefault();
         }
 
-        public Station GetStationGetByName(string stationName)
+
+
+
+        public List<Station> GetStationGetByName(string stationName)
         {
-            return _station.Find(station => station.StationName == stationName).FirstOrDefault();
+            return _station.Find(stationName).ToList();     
         }
+
+
+
 
         public List<Station> GetStations()
         {
             return _station.Find(station => true).ToList();
         }
 
+
+
+
         public void Update(string id,Station station)
         {
             _station.ReplaceOne(station => station.Id == id, station);
         }
+
+
     }
 }

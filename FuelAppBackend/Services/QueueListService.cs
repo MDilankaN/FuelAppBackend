@@ -29,6 +29,11 @@ namespace FuelAppBackend.Services
             return _queuelist.Find(queuelist => true).ToList();
         }
 
+        public List<QueueList> GetQueueListByQueue(string queueID)
+        {
+            return _queuelist.Find(filter => filter.QueueID == queueID).ToList();
+        }
+
         public void Remove(string id)
         {
             _queuelist.DeleteOne(queuelist => queuelist.Id == id);

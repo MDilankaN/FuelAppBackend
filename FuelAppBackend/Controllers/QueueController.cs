@@ -24,6 +24,17 @@ namespace FuelAppBackend.Controllers
             return _queueService.GetQueues();
         }
 
+
+        // GET api/<QueueController>/5
+        [Route("[action]/{stationName}")]
+        [HttpGet]
+        public ActionResult<List<Queue>> GetByStation(string stationName)
+        {
+            var queue = _queueService.GetQueueByStation(stationName);
+            return queue;
+        }
+
+
         // GET api/<QueueController>/5
         [Route("[action]/{queuename}")]
         [HttpGet]

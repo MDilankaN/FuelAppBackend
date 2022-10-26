@@ -41,14 +41,9 @@ namespace FuelAppBackend.Controllers
         // GET api/<QueueController>/5
         [Route("[action]/{stationName}")]
         [HttpGet]
-        public ActionResult<Station> GetStationByName(string stationName)
+        public ActionResult<List<Station>> GetStationByName(string stationName)
         {
-            var station = _stationService.GetStationGetByName(stationName);
-            if (station == null)
-            {
-                return NotFound($"Station with station name = {stationName} not found");
-            }
-            return station;
+            return _stationService.GetStationGetByName(stationName);
         }
 
         // POST api/<StationController>
