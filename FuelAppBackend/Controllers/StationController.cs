@@ -38,6 +38,14 @@ namespace FuelAppBackend.Controllers
             return station;
         }
 
+        // GET api/<QueueController>/5
+        [Route("[action]/{stationName}")]
+        [HttpGet]
+        public ActionResult<List<Station>> GetStationByName(string stationName)
+        {
+            return _stationService.GetStationGetByName(stationName);
+        }
+
         // POST api/<StationController>
         [HttpPost]
         public ActionResult<Station> Post([FromBody] Station station)
