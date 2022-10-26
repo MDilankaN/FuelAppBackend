@@ -44,7 +44,7 @@ namespace FuelAppBackend.Controllers
             var queue = _queueService.Get(id);
             if (queue == null)
             {
-                return NotFound($"Queue with Queue Name = {id} not found");
+                return NotFound($"Queue with Queue id = {id} not found");
             }
             return queue;
         }

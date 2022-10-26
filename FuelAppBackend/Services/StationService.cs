@@ -32,7 +32,7 @@ namespace FuelAppBackend.Services
 
         public Station GetStationGetByName(string stationName)
         {
-            return _station.Find(station => station.Id == stationName).FirstOrDefault();
+            return _station.Find(station => station.StationName == stationName).FirstOrDefault();
         }
 
         public List<Station> GetStations()
